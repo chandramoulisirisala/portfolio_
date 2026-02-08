@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandra Mouli Sirisala — Embedded / Hardware Engineer</title>
+  <meta name="description" content="Embedded • Hardware • Electrical — projects, experience, and contact." />
+
+  <!-- Tailwind (no build needed) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#0b0a12",
+            panel: "rgba(255,255,255,0.06)",
+            panel2: "rgba(255,255,255,0.08)",
+            stroke: "rgba(255,255,255,0.12)",
+            glow: "#b06cff",
+            glow2: "#7c3aed",
+            text: "rgba(255,255,255,0.92)",
+            sub: "rgba(255,255,255,0.70)",
+          },
+          boxShadow: {
+            glass: "0 20px 80px rgba(0,0,0,0.45)",
+            glow: "0 0 0 1px rgba(176,108,255,0.25), 0 30px 90px rgba(176,108,255,0.18)",
+          },
+          borderRadius: { xl2: "22px" },
+          backdropBlur: { xl: "24px" },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root { --bg1:#070611; --bg2:#120b23; --bg3:#1a1230; }
+    html { scroll-behavior: smooth; }
+    body{
+      background:
+        radial-gradient(1200px 600px at 15% 15%, rgba(176,108,255,0.25), transparent 55%),
+        radial-gradient(900px 500px at 90% 25%, rgba(124,58,237,0.22), transparent 55%),
+        radial-gradient(900px 700px at 60% 95%, rgba(176,108,255,0.15), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+    }
+  
+    /* Icon links (Hero + Contact) */
+    .iconlink{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:44px;
+      height:44px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.88);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+      transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease, background .15s ease;
+    }
+    .iconlink svg{ width:20px; height:20px; }
+    .iconlink:hover{
+      transform: translateY(-1px);
+      border-color: rgba(176,108,255,0.75);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(176,108,255,0.35), 0 0 22px rgba(176,108,255,0.35);
+      background: rgba(255,255,255,0.08);
+    }
+    .iconlink:focus-visible{
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(176,108,255,0.55), 0 18px 40px rgba(0,0,0,0.45);
+    }
+</style>
+
+  <style>
+    :root { --bg1:#070611; --bg2:#120b23; --bg3:#1a1230; }
+    body{
+      background: radial-gradient(1200px 600px at 15% 15%, rgba(176,108,255,0.25), transparent 55%),
+                  radial-gradient(900px 500px at 90% 25%, rgba(124,58,237,0.22), transparent 55%),
+                  radial-gradient(900px 700px at 60% 95%, rgba(176,108,255,0.15), transparent 55%),
+                  linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
+      overflow-x:hidden;
+    }
+
+    /* ===== UX polish (scroll progress, reveal, nav active, hover lift) ===== */
+    #scroll-progress{
+      background: linear-gradient(90deg, rgba(176,108,255,0.9), rgba(124,58,237,0.9));
+      box-shadow: 0 0 18px rgba(176,108,255,0.35);
+    }
+
+    .card-hover{
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background-color 180ms ease;
+      will-change: transform;
+    }
+    .card-hover:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 22px 90px rgba(0,0,0,0.45);
+      border-color: rgba(255,255,255,0.16);
+    }
+
+
+    
+    /* Hover border light (Experience/Education/Community/Contact cards) */
+    .hover-border{
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+    .hover-border:hover{
+      border-color: rgba(176,108,255,0.75) !important;
+      box-shadow:
+        0 0 0 1px rgba(176,108,255,0.65),
+        0 0 0 2px rgba(176,108,255,0.20),
+        0 0 70px rgba(176,108,255,0.28),
+        0 0 140px rgba(124,58,237,0.18),
+        0 28px 110px rgba(0,0,0,0.55);
+    }
+
+.reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 450ms ease, transform 450ms ease;
+    }
+    .reveal.reveal-in{ opacity:1; transform: translateY(0); }
+
+    .navlink{ position:relative; }
+    .navlink.active{ color: rgba(255,255,255,0.92) !important; }
+    .navlink.active::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:-8px;
+      width:18px;
+      height:2px;
+      transform: translateX(-50%);
+      border-radius:999px;
+      background: rgba(176,108,255,0.85);
+      box-shadow: 0 0 18px rgba(176,108,255,0.35);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity:1; transform:none; transition:none; }
+      .card-hover{ transition:none; }
+    }
+  </style>
+
+</head>
+<body class="text-text selection:bg-glow/30 selection:text-white">
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] w-0 z-[60]"></div>
+  <!-- Glow Orbs -->
+  <div class="pointer-events-none fixed inset-0 opacity-70">
+    <div class="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-glow/20 blur-3xl"></div>
+    <div class="absolute top-10 right-0 h-[32rem] w-[32rem] rounded-full bg-glow2/15 blur-3xl"></div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-ink/30 border-b border-stroke">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-glow/20 border border-stroke">✦</span>
+        <span class="font-semibold tracking-tight">Chandra.</span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6">
+        <a href="#home" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Home</a>
+        <a href="#about" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">About</a>
+        <a href="#skills" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Skills</a>
+        <a href="#projects" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Projects</a>
+        <a href="#publications" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Publications</a>
+        <a href="#experience" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Experience</a>
+        <a href="#education" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Education</a>
+        <a href="#community" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Community</a>
+        <a href="#contact" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Contact</a>
+      </nav>
+      <nav class="lg:hidden mt-3 md:mt-0 w-full overflow-x-auto no-scrollbar">
+        <div class="flex items-center gap-6 min-w-max px-2">
+          <a href="#home" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Home</a>
+          <a href="#about" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">About</a>
+          <a href="#skills" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Skills</a>
+          <a href="#projects" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Projects</a>
+          <a href="#publications" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Publications</a>
+          <a href="#experience" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Experience</a>
+          <a href="#education" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Education</a>
+          <a href="#community" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Community</a>
+          <a href="#contact" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Contact</a>
+        </div>
+      </nav>
+
+
+      <a href="#contact" class="rounded-full bg-white/10 border border-stroke px-5 py-2 hover:bg-white/15 shadow-glow navlink">
+        Hire Me
+      </a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-4">
+    <!-- HERO -->
+    <section id="home" class="pt-16 md:pt-24 pb-16 reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full bg-panel border border-stroke px-4 py-2 card-hover">
+            <span class="h-2 w-2 rounded-full bg-glow shadow-[0_0_30px_rgba(176,108,255,0.9)]"></span>
+            <span class="text-sm text-sub">Available for Embedded, Hardware, and Electrical Engineering Roles</span>
+          </div>
+
+          <h1 class="mt-6 text-4xl md:text-6xl font-semibold leading-tight tracking-tight">
+            Hi, I’m <span class="text-white">Chandra Mouli</span>,<br/>
+            Embedded / Hardware Engineer
+          </h1>
+
+          <p class="mt-5 text-sub text-lg leading-relaxed max-w-xl">
+            I build reliable embedded and hardware systems — from sensor/MCU integration to testing and validation —
+            clean engineering execution, and validation plots that tell the full story.
+          </p>
+
+          <div class="mt-8 flex items-center gap-4">
+            <a class="iconlink" href="mailto:chandramoulisirisala@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+            <a class="iconlink" href="https://www.linkedin.com/in/chandramoulisirisala/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.88 3.5 3 4.4 3 5.5s.88 2 1.98 2h.02C6.1 7.5 7 6.6 7 5.5S6.1 3.5 5 3.5h-.02zM3.5 21h3V9h-3v12zM9 9h2.9v1.64h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V21h-3v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9z"/></svg></a>
+            <a class="iconlink" href="https://github.com/chandramoulisirisala" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+
+          <div class="mt-6 text-sm text-sub">Buffalo, NY • Open to Relocate • C / Python • Embedded Systems</div>
+          <div class="mt-6 text-sub text-sm">
+            <span class="text-white/90">Hands-on</span> embedded + hardware projects with measurable validation.
+          </div>
+        </div>
+
+        <!-- Hero portrait -->
+        <div class="relative flex items-center justify-center md:justify-end">
+          <div class="absolute -inset-10 rounded-full bg-glow/20 blur-3xl"></div>
+          <img
+            src="./assets/profile-hero.jpg"
+            alt="Profile"
+            class="relative h-80 w-80 md:h-[22rem] md:w-[22rem] rounded-[28px] object-cover border border-stroke shadow-glow"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-16 reveal">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div class="relative">
+          <div class="absolute -inset-6 rounded-full bg-glow2/10 blur-2xl"></div>
+          <div class="relative rounded-full border border-stroke bg-panel shadow-glass p-6 w-fit">
+            <img src="./assets/profile-about.jpg" alt="About photo (placeholder)"
+                 class="h-80 w-80 rounded-full object-cover border border-stroke" />
+          </div>
+        </div>
+
+        <div>
+          <p class="text-sm tracking-widest text-sub">ABOUT ME</p>
+          <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+            Engineering embedded hardware + electrical systems
+          </h2>
+          <p class="mt-4 text-sub leading-relaxed">I’m a graduate Electrical Engineering student focused on embedded systems, hardware bring-up, and practical electrical engineering. I work end-to-end — requirements → design → integration → testing — and I like to make results measurable with clean logs, dashboards, and repeatable validation.</p>
+
+          <div class="mt-7 grid sm:grid-cols-3 gap-4">
+            <div class="rounded-xl2 bg-panel border border-stroke p-5 card-hover">
+              <div class="text-2xl font-semibold">MS</div>
+              <div class="text-sm text-sub mt-1">Electrical Engineering</div>
+            </div>
+            <div class="rounded-xl2 bg-panel border border-stroke p-5 card-hover">
+              <div class="text-2xl font-semibold">HW</div>
+              <div class="text-sm text-sub mt-1">Bring-up + Debug</div>
+            </div>
+            <div class="rounded-xl2 bg-panel border border-stroke p-5 card-hover">
+              <div class="text-2xl font-semibold">Embedded</div>
+              <div class="text-sm text-sub mt-1">Sensors + Validation</div>
+            </div>
+          </div>
+
+          <a href="./assets/Chandra-Mouli-Sirisala-CV.pdf"
+             class="inline-flex mt-8 rounded-full bg-white/10 border border-stroke px-6 py-3 hover:bg-white/15 shadow-glow"
+             download>
+            Download CV
+          </a>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- SKILLS -->
+    <section id="skills" class="py-16 reveal">
+      <div class="text-center">
+        <p class="text-sm tracking-widest text-sub">SPECIALTIES</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">What I Work On</h2>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-12 w-12 rounded-xl bg-white/5 border border-stroke flex items-center justify-center text-xl">🧩</div>
+          <h3 class="mt-4 text-xl font-semibold">Embedded Firmware</h3>
+          <p class="mt-2 text-sub">C/C++, Python tools, GPIO, I2C/SPI/UART, logging, and basic real-time behavior.</p>
+        </div>
+
+        <div class="rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-12 w-12 rounded-xl bg-white/5 border border-stroke flex items-center justify-center text-xl">🔌</div>
+          <h3 class="mt-4 text-xl font-semibold">Electronics & Circuits</h3>
+          <p class="mt-2 text-sub">Sensor interfacing, analog/digital basics, power regulation, schematics, bring-up.</p>
+        </div>
+
+        <div class="rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-12 w-12 rounded-xl bg-white/5 border border-stroke flex items-center justify-center text-xl">🧪</div>
+          <h3 class="mt-4 text-xl font-semibold">Testing & Validation</h3>
+          <p class="mt-2 text-sub">Debugging with instruments, test plans, reliability checks, and clear results reporting.</p>
+        </div>
+
+        <div class="rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-12 w-12 rounded-xl bg-white/5 border border-stroke flex items-center justify-center text-xl">🛠️</div>
+          <h3 class="mt-4 text-xl font-semibold">Prototyping</h3>
+          <p class="mt-2 text-sub">Breadboards → stable prototypes, wiring discipline, connectors, enclosures, iteration speed.</p>
+        </div>
+
+        <div class="rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-12 w-12 rounded-xl bg-white/5 border border-stroke flex items-center justify-center text-xl">📟</div>
+          <h3 class="mt-4 text-xl font-semibold">MCU + SBC Systems</h3>
+          <p class="mt-2 text-sub">Raspberry Pi/Arduino workflows, peripheral integration, data capture, automation scripts.</p>
+        </div>
+
+        <div class="rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-12 w-12 rounded-xl bg-white/5 border border-stroke flex items-center justify-center text-xl">⚡</div>
+          <h3 class="mt-4 text-xl font-semibold">Power & Signals</h3>
+          <p class="mt-2 text-sub">Practical power budgeting, filtering basics, noise awareness, and safe lab practices.</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- PROJECTS -->
+    <section id="projects" class="py-16 reveal">
+      <div class="text-center">
+        <p class="text-sm tracking-widest text-sub">PROJECTS</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">
+          Hands-on embedded, hardware, and electrical builds
+        </h2>
+        <p class="mt-4 text-sub max-w-3xl mx-auto">
+          Five projects that show practical system building: sensor integration, firmware/controls, hardware validation, plus two HFSS antenna designs with publications.
+          Replace the images by dropping your screenshots into the <span class="text-white/80">/projects</span> folder (same filenames).
+        </p>
+      </div>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <!-- 1) Raspberry Pi Dashboard -->
+        <article class="group rounded-xl2 bg-panel border border-stroke overflow-hidden shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-56 bg-white/5 border-b border-stroke relative">
+            <img src="./projects/multisensor-dashboard.png" alt="Smart Sensor Dashboard (placeholder)" class="absolute inset-0 h-full w-full object-cover" />
+          </div>
+          <div class="p-7">
+            <p class="text-sm text-sub">EMBEDDED • RASPBERRY PI • FALL 2025</p>
+            <h3 class="mt-2 text-2xl font-semibold">Smart Sensor Monitoring & Dashboard System</h3>
+            <p class="mt-3 text-sub">
+              Real-time environmental monitoring with a multi-sensor embedded system and a live dashboard for validation.
+            </p>
+
+            <ul class="md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:transition-all md:duration-300 mt-4 text-sub space-y-2">
+              <li>• Enabled real-time monitoring across 5+ sensors using Raspberry Pi GPIO and calibrated sensor interfaces.</li>
+              <li>• Achieved &gt;95% data reliability with fault-tolerant acquisition, validation, and retry logic (Python; GPIO/I2C/SPI).</li>
+              <li>• Reduced manual monitoring by 60% using a live dashboard + structured CSV logging pipelines.</li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-sub">
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Python</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Raspberry Pi</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">GPIO/I2C/SPI</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Dashboard</span>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a class="rounded-full bg-panel2 border border-stroke px-5 py-2 hover:bg-white/10"
+                 href="https://github.com/chandramoulisirisala" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2) Smart Thermostat -->
+        <article class="group rounded-xl2 bg-panel border border-stroke overflow-hidden shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-56 bg-white/5 border-b border-stroke relative">
+            <img src="./projects/smart-thermostat.png" alt="AI-Enabled Smart Thermostat (placeholder)" class="absolute inset-0 h-full w-full object-cover" />
+          </div>
+          <div class="p-7">
+            <p class="text-sm text-sub">EMBEDDED • CONTROL • FALL 2024</p>
+            <h3 class="mt-2 text-2xl font-semibold">AI-Enabled Smart Thermostat System</h3>
+            <p class="mt-3 text-sub">
+              Embedded thermostat with sensor fusion and event-driven control routines for faster response and lower power.
+            </p>
+
+            <ul class="md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:transition-all md:duration-300 mt-4 text-sub space-y-2">
+              <li>• Enabled context-aware HVAC control using temperature, motion, and ambient-light sensors with real-time sensor fusion logic.</li>
+              <li>• Improved environmental response latency by 40% using event-driven, sensor-based decision logic and optimized embedded control routines.</li>
+              <li>• Reduced idle power consumption by 25% by applying low-power strategies through duty cycling, sensor sleep states, and efficient power regulation design.</li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-sub">
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Sensor Fusion</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Event-driven</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Low Power</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3) Smart Parking -->
+        <article class="group rounded-xl2 bg-panel border border-stroke overflow-hidden shadow-glass hover:shadow-glow transition card-hover">
+          <div class="h-56 bg-white/5 border-b border-stroke relative">
+            <img src="./projects/smart-parking.png" alt="Smart Parking System (placeholder)" class="absolute inset-0 h-full w-full object-cover" />
+          </div>
+          <div class="p-7">
+            <p class="text-sm text-sub">EMBEDDED • ELECTRICAL • SPRING 2024</p>
+            <h3 class="mt-2 text-2xl font-semibold">Smart Parking Monitoring & Control System</h3>
+            <p class="mt-3 text-sub">
+              Embedded occupancy detection + gate control with validation logic and camera-assisted monitoring.
+            </p>
+
+            <ul class="md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:transition-all md:duration-300 mt-4 text-sub space-y-2">
+              <li>• Enabled real-time parking slot occupancy detection using IR sensors, Arduino UNO, and ESP8266 for continuous state tracking.</li>
+              <li>• Improved reliability of detection using periodic polling and validation logic with debounced digital reads and fault-checking routines.</li>
+              <li>• Automated vehicle entry/exit operations using ESP32-CAM video monitoring and servo-motor gate control via PWM actuation.</li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-sub">
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Arduino UNO</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">ESP8266</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">ESP32-CAM</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">PWM</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4) E-shaped antenna -->
+        <article class="group rounded-xl2 bg-panel border border-stroke overflow-hidden shadow-glass hover:shadow-glow transition card-hover">
+          <div class="grid grid-cols-2 gap-0 border-b border-stroke">
+            <div class="h-56 bg-white/5 border-r border-stroke relative">
+              <img src="./projects/eshaped-s11.png" alt="E-shaped S11 (placeholder)" class="absolute inset-0 h-full w-full object-cover" />
+            </div>
+            <div class="h-56 bg-white/5 relative">
+              <img src="./projects/eshaped-model.png" alt="E-shaped model (placeholder)" class="absolute inset-0 h-full w-full object-cover" />
+            </div>
+          </div>
+          <div class="p-7">
+            <p class="text-sm text-sub">ELECTRICAL • HFSS • SPRING 2024</p>
+            <h3 class="mt-2 text-2xl font-semibold">E-Shaped Microstrip Patch Antenna with DGS (HFSS)</h3>
+            <p class="mt-3 text-sub">
+              5.2 GHz antenna designed in ANSYS HFSS with DGS + edge-fed architecture; optimized matching and validated far-field behavior.
+            </p>
+
+            <ul class="md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:transition-all md:duration-300 mt-4 text-sub space-y-2">
+              <li>• Achieved high-performance radiation at 5.2 GHz with strong impedance matching using an edge-fed DGS design in HFSS.</li>
+              <li>• Improved return loss to –30 dB and maintained VSWR ≈ 1 by optimizing geometry, feed location, and DGS parameters through parametric sweeps.</li>
+              <li>• Enhanced gain/directivity by suppressing surface-wave losses and validating via far-field radiation pattern analysis.</li>
+              <li>• Published in IRJET.</li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-sub">
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">ANSYS HFSS</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">S-Parameters</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">VSWR</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Far-field</span>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a class="rounded-full bg-white/10 border border-stroke px-5 py-2 hover:bg-white/15"
+                 href="./papers/IRJET-V11I4123.pdf" target="_blank" rel="noreferrer">View Paper (PDF)</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5) Printed 5G antenna -->
+        <article class="group rounded-xl2 bg-panel border border-stroke overflow-hidden shadow-glass hover:shadow-glow transition card-hover">
+          <div class="grid grid-cols-2 gap-0 border-b border-stroke">
+            <div class="h-56 bg-white/5 border-r border-stroke relative">
+              <img src="./projects/fiveg-s11.png" alt="5G S11 (placeholder)" class="absolute inset-0 h-full w-full object-cover" />
+            </div>
+            <div class="h-56 bg-white/5 relative">
+              <img src="./projects/fiveg-model.png" alt="5G model (placeholder)" class="absolute inset-0 h-full w-full object-cover" />
+            </div>
+          </div>
+          <div class="p-7">
+            <p class="text-sm text-sub">ELECTRICAL • HFSS • SPRING 2024</p>
+            <h3 class="mt-2 text-2xl font-semibold">Printed Microstrip Patch Antenna Design for 5G (HFSS)</h3>
+            <p class="mt-3 text-sub">
+              Printed microstrip patch antenna modeled in HFSS; optimized matching and validated bandwidth + radiation patterns.
+            </p>
+
+            <ul class="md:opacity-0 md:max-h-0 md:overflow-hidden md:group-hover:opacity-100 md:group-hover:max-h-[500px] md:transition-all md:duration-300 mt-4 text-sub space-y-2">
+              <li>• Designed a compact antenna by modeling and simulating a printed microstrip patch antenna using ANSYS HFSS.</li>
+              <li>• Improved impedance matching and signal efficiency by 30% by optimizing feed position and patch dimensions to achieve VSWR &lt; 2.</li>
+              <li>• Validated multi-band wireless performance by analyzing S-parameters, bandwidth, and radiation patterns using far-field and return-loss analysis.</li>
+              <li>• Published in IRJET.</li>
+            </ul>
+
+            <div class="mt-5 flex flex-wrap gap-2 text-xs text-sub">
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">ANSYS HFSS</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Parametric Sweeps</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">VSWR &lt; 2</span>
+              <span class="rounded-full bg-white/5 border border-stroke px-3 py-1">Radiation</span>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a class="rounded-full bg-white/10 border border-stroke px-5 py-2 hover:bg-white/15"
+                 href="./papers/IRJET-V11I4124.pdf" target="_blank" rel="noreferrer">View Paper (PDF)</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+<!-- PUBLICATIONS -->
+    <section id="publications" class="py-16 reveal">
+      <div class="text-center">
+        <p class="text-sm tracking-widest text-sub">PUBLICATIONS</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Research (supporting evidence)</h2>
+      <p class="mt-4 text-sub max-w-3xl mx-auto text-center">These publications are a bonus signal — my target roles are embedded, hardware, and electrical engineering.</p>
+</div>
+
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-sub rounded-full bg-white/5 border border-stroke px-3 py-1">IRJET</span>
+            <span class="text-xs text-sub">Apr 2024</span>
+          </div>
+          <h3 class="mt-4 text-2xl font-semibold">
+            Design of E-Shaped Microstrip Patch Antenna with Edge Feeding on DGS
+          </h3>
+          <p class="mt-3 text-sub">
+            5.2 GHz antenna optimized in HFSS using DGS + edge feeding; strong matching and stable far-field behavior.
+          </p>
+          <div class="mt-6 flex gap-3 flex-wrap">
+            <a class="rounded-full bg-white/10 border border-stroke px-5 py-2 hover:bg-white/15"
+               href="./papers/IRJET-V11I4123.pdf" target="_blank" rel="noreferrer">View Paper PDF</a>
+            <a class="rounded-full bg-panel2 border border-stroke px-5 py-2 hover:bg-white/10"
+               href="#projects">View Project</a>
+          </div>
+        </article>
+
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass hover:shadow-glow transition card-hover">
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-sub rounded-full bg-white/5 border border-stroke px-3 py-1">IRJET</span>
+            <span class="text-xs text-sub">Apr 2024</span>
+          </div>
+          <h3 class="mt-4 text-2xl font-semibold">
+            Printed Antenna Design and Simulation for 5G using HFSS
+          </h3>
+          <p class="mt-3 text-sub">
+            HFSS-simulated printed antenna targeting mmWave operation with strong impedance matching and directional performance.
+          </p>
+          <div class="mt-6 flex gap-3 flex-wrap">
+            <a class="rounded-full bg-white/10 border border-stroke px-5 py-2 hover:bg-white/15"
+               href="./papers/IRJET-V11I4124.pdf" target="_blank" rel="noreferrer">View Paper PDF</a>
+            <a class="rounded-full bg-panel2 border border-stroke px-5 py-2 hover:bg-white/10"
+               href="#projects">View Project</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-16 reveal">
+      <div class="text-center">
+        <p class="text-sm tracking-widest text-sub">EXPERIENCE</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Internships & Campus Employment</h2>
+      </div>
+
+      <div class="mt-10 space-y-6">
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass card-hover hover-border">
+          <div>
+  <h3 class="text-xl font-semibold"><img src="assets/logo-air.png" alt="" class="h-8 w-8 inline-block mr-4 align-text-bottom opacity-95 rounded-md bg-white/5 p-1 border border-stroke" />Intern — All India Radio (AIR), Visakhapatnam</h3>
+  <div class="mt-1 text-sm text-sub">May 2023 – Jul 2023</div>
+  <div class="mt-1 text-sm text-sub">RF Broadcasting Systems</div>
+</div>
+          <ul class="mt-4 space-y-2 text-sub">
+            <li>• Supported reliable 24×7 regional broadcasting by analyzing end-to-end RF transmission chains across antenna systems, transmitters, and studio-to-transmitter links.</li>
+            <li>• Maintained on-air signal quality during live broadcasts by monitoring antenna performance, modulation quality, and audio integrity using RF observation and lab measurement techniques.</li>
+            <li>• Assisted RF fault isolation by working with transmitters, power amplifiers, and filters; performed basic troubleshooting using oscilloscopes and multimeters.</li>
+          </ul>
+        </article>
+
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass card-hover hover-border">
+          <div>
+  <h3 class="text-xl font-semibold"><img src="assets/logo-cisco.png" alt="" class="h-8 w-8 inline-block mr-4 align-text-bottom opacity-95 rounded-md bg-white/5 p-1 border border-stroke" />Trainee — Cisco Networking Academy</h3>
+  <div class="mt-1 text-sm text-sub">Jun 2020 – Nov 2020</div>
+  <div class="mt-1 text-sm text-sub">Networking & Switching</div>
+</div>
+          <ul class="mt-4 space-y-2 text-sub">
+            <li>• Built a foundation in enterprise networking through hands-on training in routing, switching, and networking fundamentals.</li>
+            <li>• Improved understanding of data flow by analyzing packet movement and protocol interactions using OSI and TCP/IP models.</li>
+            <li>• Configured functional IP networks in simulated environments with IP addressing, basic routing, and segmentation using Cisco tools.</li>
+          </ul>
+        </article>
+
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass card-hover hover-border">
+          <div>
+  <h3 class="text-xl font-semibold"><img src="assets/logo-ub.png" alt="" class="h-8 w-8 inline-block mr-4 align-text-bottom opacity-95 rounded-md bg-white/5 p-1 border border-stroke" />Student Employee — Campus Dining & Shops</h3>
+  <div class="mt-1 text-sm text-sub">University at Buffalo, USA</div>
+  <div class="mt-1 text-sm text-sub">Sep 2024 – Dec 2025</div>
+</div>
+          <ul class="mt-4 space-y-2 text-sub">
+            <li>• Balanced part-time employment alongside a full-time MS in Electrical Engineering through disciplined time management.</li>
+            <li>• Maintained high transaction accuracy by operating POS systems in a fast-paced environment during peak service hours.</li>
+            <li>• Demonstrated reliability by consistently meeting scheduling and performance expectations during high-demand academic periods.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="py-16 reveal">
+      <div class="text-center">
+        <p class="text-sm tracking-widest text-sub">EDUCATION</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Academic Background</h2>
+      </div>
+
+      <div class="mt-10 space-y-6">
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass card-hover hover-border">
+          <div>
+  <h3 class="text-xl font-semibold"><img src="assets/logo-ub-ee.png" alt="" class="h-8 w-8 inline-block mr-4 align-text-bottom opacity-95 rounded-md bg-white/5 p-1 border border-stroke" />Master of Science in Electrical Engineering</h3>
+  <div class="mt-1 text-sm text-sub">University at Buffalo, USA</div>
+  <div class="mt-1 text-sm text-sub">Aug 2024 – Dec 2025</div>
+</div>
+          <div class="mt-3 text-sub">
+            <span class="font-medium text-text">Relevant Coursework:</span>
+            Semiconductor Devices I &amp; II, VLSI Electronics, Digital Signal Processing, MIMO Wireless Communications, Wearables &amp; Implantable Sensors, Internet of Things (IoT).
+          </div>
+        </article>
+
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass card-hover hover-border">
+          <div>
+  <h3 class="text-xl font-semibold"><img src="assets/logo-krishna.png" alt="" class="h-8 w-8 inline-block mr-4 align-text-bottom opacity-95 rounded-md bg-white/5 p-1 border border-stroke" />Bachelor of Technology in Electronics &amp; Communication Engineering</h3>
+  <div class="mt-1 text-sm text-sub">Krishna University, India</div>
+  <div class="mt-1 text-sm text-sub">Aug 2021 – Apr 2024</div>
+</div>
+          <div class="mt-3 text-sub">
+            <span class="font-medium text-text">Relevant Coursework:</span>
+            Microcontrollers &amp; Interfacing, Control Systems, Digital Signal Processing, VLSI Design, Optical Communication, CMOS IC Design.
+          </div>
+        </article>
+
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass card-hover hover-border">
+          <div>
+  <h3 class="text-xl font-semibold"><img src="assets/logo-gpa.png" alt="" class="h-8 w-8 inline-block mr-4 align-text-bottom opacity-95 rounded-md bg-white/5 p-1 border border-stroke" />Diploma in Electronics &amp; Communication Engineering</h3>
+  <div class="mt-1 text-sm text-sub">Government Polytechnic Anakapalli, India</div>
+  <div class="mt-1 text-sm text-sub">Jun 2018 – Apr 2021</div>
+</div>
+          <div class="mt-3 text-sub">
+            <span class="font-medium text-text">Relevant Coursework:</span>
+            Digital Electronics, Analog &amp; Digital Communication, Linear IC Applications, Microprocessors, Microwave &amp; Satellite Communication.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section id="community" class="py-16 reveal">
+      <div class="text-center">
+        <p class="text-sm tracking-widest text-sub">COMMUNITY</p>
+        <h2 class="mt-3 text-3xl md:text-4xl font-semibold tracking-tight">Community Involvement</h2>
+      </div>
+
+      <div class="mt-10 space-y-6">
+        <article class="group rounded-xl2 bg-panel border border-stroke p-7 shadow-glass card-hover hover-border">
+          <div class="flex flex-wrap items-baseline justify-between gap-3">
+            <h3 class="text-xl font-semibold">Health &amp; Hygiene Awareness Campaign</h3>
+            <div class="text-sm text-sub">Apr 2022</div>
+          </div>
+          <ul class="mt-4 space-y-2 text-sub">
+            <li>• Improved awareness of sanitation and preventive health practices by leading educational programs focused on hygiene and public health fundamentals.</li>
+            <li>• Coordinated volunteer-led outreach by organizing awareness sessions for multiple local community groups and students.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+
+<!-- CONTACT -->
+    <section id="contact" class="py-20 reveal">
+      <div class="rounded-xl2 bg-panel border border-stroke shadow-glass p-10 text-center relative overflow-hidden card-hover hover-border">
+        <div class="absolute inset-0 opacity-60 pointer-events-none"
+             style="background: radial-gradient(800px 400px at 50% 0%, rgba(176,108,255,0.25), transparent 60%);"></div>
+
+        <div class="relative">
+          <div class="inline-flex items-center gap-2 rounded-full bg-white/5 border border-stroke px-4 py-2">
+            <span class="h-2 w-2 rounded-full bg-glow"></span>
+            <span class="text-sm text-sub">Open to Relocate • Embedded • Hardware • Electrical</span>
+          </div>
+
+          <h2 class="mt-5 text-3xl md:text-5xl font-semibold tracking-tight">
+            Let’s build reliable embedded + hardware systems
+          </h2>
+
+          <p class="mt-4 text-sub max-w-2xl mx-auto">
+            If you’re hiring for Embedded, Hardware, or Electrical Engineering roles, I’d love to connect.
+          </p>
+
+          <div class="mt-8 flex flex-wrap justify-center items-center gap-4">
+            <a class="iconlink" href="mailto:chandramoulisirisala@gmail.com" aria-label="Email" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+            <a class="iconlink" href="https://www.linkedin.com/in/chandramoulisirisala/" target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C3.88 3.5 3 4.4 3 5.5s.88 2 1.98 2h.02C6.1 7.5 7 6.6 7 5.5S6.1 3.5 5 3.5h-.02zM3.5 21h3V9h-3v12zM9 9h2.9v1.64h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6V21h-3v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.6-2.38 3.27V21H9V9z"/></svg></a>
+            <a class="iconlink" href="https://github.com/chandramoulisirisala" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          </div>
+
+          <div class="mt-8 text-sub text-sm">
+            Buffalo, NY • (716) 817-4867
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-10 text-center text-sub text-sm">
+      © <span id="y"></span> Chandra Mouli Sirisala. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    // Scroll progress bar
+    (function(){
+      const bar = document.getElementById('scroll-progress');
+      function onScroll(){
+        const doc = document.documentElement;
+        const scrollTop = doc.scrollTop || document.body.scrollTop;
+        const height = (doc.scrollHeight - doc.clientHeight) || 1;
+        const pct = Math.min(100, Math.max(0, (scrollTop / height) * 100));
+        if (bar) bar.style.width = pct + '%';
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Section reveal + active nav highlight
+    (function(){
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      const navLinks = Array.from(document.querySelectorAll('header a.navlink[href^="#"]'));
+
+      function setActive(id){
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting){
+            e.target.classList.add('reveal-in');
+          }
+        });
+
+        const visible = entries
+          .filter(e => e.isIntersecting)
+          .sort((a,b) => (b.intersectionRatio - a.intersectionRatio));
+        if (visible[0] && visible[0].target && visible[0].target.id){
+          setActive(visible[0].target.id);
+        }
+      }, { threshold: [0.12, 0.22, 0.35] });
+
+      sections.forEach(s => io.observe(s));
+
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY + 120;
+        let current = sections[0]?.id;
+        sections.forEach(sec => {
+          if (sec.offsetTop <= y) current = sec.id;
+        });
+        if (current) setActive(current);
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
