@@ -1,22 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --bg1: #070611;
-  --bg2: #120b23;
-  --bg3: #1a1230;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background:
-    radial-gradient(1200px 600px at 15% 15%, rgba(176,108,255,0.25), transparent 55%),
-    radial-gradient(900px 500px at 90% 25%, rgba(124,58,237,0.22), transparent 55%),
-    radial-gradient(900px 700px at 60% 95%, rgba(176,108,255,0.15), transparent 55%),
-    linear-gradient(180deg, var(--bg1), var(--bg2), var(--bg3));
-}
+/* Build output goes here. Run tailwind build command to generate this file. */
 
 
 
