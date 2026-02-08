@@ -169,24 +169,31 @@
         <a href="#community" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Community</a>
         <a href="#contact" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Contact</a>
       </nav>
-      <nav class="lg:hidden mt-3 md:mt-0 w-full overflow-x-auto no-scrollbar">
-        <div class="flex items-center gap-6 min-w-max px-2">
-          <a href="#home" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Home</a>
-          <a href="#about" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">About</a>
-          <a href="#skills" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Skills</a>
-          <a href="#projects" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Projects</a>
-          <a href="#publications" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Publications</a>
-          <a href="#experience" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Experience</a>
-          <a href="#education" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Education</a>
-          <a href="#community" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Community</a>
-          <a href="#contact" class="text-sm text-sub hover:text-text transition whitespace-nowrap navlink">Contact</a>
-        </div>
-      </nav>
+      <!-- Mobile: clean hamburger menu (avoids cramped horizontal scroll) -->
+      <div class="lg:hidden flex items-center gap-2">
+        <button id="menuBtn" class="rounded-full bg-white/10 border border-stroke px-4 py-2 hover:bg-white/15 shadow-glow" aria-label="Open menu" aria-expanded="false">
+          <span class="text-lg leading-none">☰</span>
+        </button>
+      </div>
 
+      <!-- Desktop CTA -->
+      <a href="#contact" class="hidden lg:inline-flex rounded-full bg-white/10 border border-stroke px-5 py-2 hover:bg-white/15 shadow-glow navlink">Hire Me</a>
+    </div>
 
-      <a href="#contact" class="rounded-full bg-white/10 border border-stroke px-5 py-2 hover:bg-white/15 shadow-glow navlink">
-        Hire Me
-      </a>
+    <!-- Mobile dropdown panel -->
+    <div id="mobileMenu" class="lg:hidden hidden mt-3 rounded-2xl border border-stroke bg-white/5 backdrop-blur-xl p-3">
+      <div class="grid gap-2">
+        <a href="#home" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Home</a>
+        <a href="#about" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">About</a>
+        <a href="#skills" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Skills</a>
+        <a href="#projects" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Projects</a>
+        <a href="#publications" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Publications</a>
+        <a href="#experience" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Experience</a>
+        <a href="#education" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Education</a>
+        <a href="#community" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Community</a>
+        <a href="#contact" class="px-3 py-2 rounded-xl text-sub hover:text-text hover:bg-white/5 transition navlink">Contact</a>
+        <a href="#contact" class="mt-1 px-3 py-2 rounded-xl bg-white/10 border border-stroke hover:bg-white/15 transition navlink">Hire Me</a>
+      </div>
     </div>
   </header>
 
@@ -228,7 +235,7 @@
           <img
             src="./assets/profile-hero.jpg"
             alt="Profile"
-            class="relative h-80 w-80 md:h-[22rem] md:w-[22rem] rounded-[28px] object-cover border border-stroke shadow-glow"
+            class="relative h-80 w-80 md:h-[24rem] md:w-[24rem] rounded-[28px] object-cover object-top border border-stroke shadow-glow"
           />
         </div>
       </div>
@@ -269,8 +276,8 @@
 
           <a href="./assets/Chandra-Mouli-Sirisala-CV.pdf"
              class="inline-flex mt-8 rounded-full bg-white/10 border border-stroke px-6 py-3 hover:bg-white/15 shadow-glow"
-             download>
-            Download CV
+             target="_blank" rel="noopener">
+            View CV (PDF)
           </a>
         </div>
       </div>
@@ -693,9 +700,7 @@
             <a class="iconlink" href="https://github.com/chandramoulisirisala" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3"/><path d="M15 22v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
           </div>
 
-          <div class="mt-8 text-sub text-sm">
-            Buffalo, NY • (716) 817-4867
-          </div>
+          <div class="mt-8 text-sub text-sm">Buffalo, NY</div>
         </div>
       </div>
     </section>
@@ -722,6 +727,43 @@
       }
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
+    })();
+
+    // Mobile menu toggle
+    (function(){
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      if (!btn || !menu) return;
+
+      function close(){
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) {
+          menu.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          close();
+        }
+      });
+
+      // Close menu when a link is clicked
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+
+      // Close if you tap outside
+      document.addEventListener('click', (e) => {
+        if (menu.classList.contains('hidden')) return;
+        if (menu.contains(e.target) || btn.contains(e.target)) return;
+        close();
+      });
     })();
 
     // Section reveal + active nav highlight
